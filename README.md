@@ -2,6 +2,6 @@
 
 Projeto realizado por: Flávio Landeira e Guilherme Sela;
 
-Tema:
+Tema: Site sobre música.
 
-Descrição:
+Descrição: No nosso site, pode encontrar o seu gosto musical, encontrar a musica que não sabe o nome, apenas usando o aúdio, e encontrar playlists adequadas para o seu estilo musical.
