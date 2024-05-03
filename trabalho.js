@@ -4,7 +4,7 @@ let playlist = [];
 function searchArtists() {
     const searchInput = document.getElementById("searchInput").value;
 
-    // Limpa o container de artistas
+    // Limpa o container de artistass
     document.getElementById("artistContainer").innerHTML = "";
 
     // Faz uma solicitação à API de música (substitua 'API_KEY' e 'API_ENDPOINT' com suas próprias informações)
