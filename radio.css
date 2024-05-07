@@ -1,0 +1,43 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ff7eb3, #bf45d7);
+}
+
+.primeiroDiv {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+#SelecionarRadio {
+    margin: 20px auto;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#radioInfo {
+    margin-top: 30px;
+}
+
+#radioInfo h2 {
+    margin-bottom: 10px;
+}
+
+#radioInfo p {
+    margin-bottom: 5px;
+    color: #555;
+}
