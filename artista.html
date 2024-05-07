@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artists Info</title>
+    <title>Busca de Artista</title>
     <link rel="stylesheet" href="artista.css">
 </head>
 <body>
     <div class="container">
-        <h1>Informações sobre Artistas</h1>
-        <input type="text" id="artistName" placeholder="Digite o nome do artista">
-        <button id="searchBtn">Pesquisar</button>
-        <div id="artistInfo" class="artist-info"></div>
+        <h1>Encontre seu Artista</h1>
+        <input type="text" id="artistName" placeholder="Nome do Artista">
+        <button onclick="searchArtist()">Buscar</button>
+        <div id="artistInfo" class="artist-info" style="display: none;">
+            <h2 id="artistNameDisplay"></h2>
+            <p id="artistGenre"></p>
+            <img id="artistImage" src="" alt="Imagem do Artista">
+        </div>
     </div>
     <script src="artista.js"></script>
 </body>

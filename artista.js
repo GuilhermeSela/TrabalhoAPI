@@ -1,42 +1,33 @@
-const searchBtn = document.getElementById('searchBtn');
-const artistNameInput = document.getElementById('artistName');
-const artistInfoDiv = document.getElementById('artistInfo');
+function searchArtist() {
+    const artistName = document.getElementById('artistName').value;
+    const apiKey = 'V7RMLICYZxiGuLz2w2HRi8aKwG2tCgjP';
+    const url = `https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=${apiKey}&keyword=${artistName}`;
 
-searchBtn.addEventListener('click', () => {
-    const artistName = artistNameInput.value.trim();
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const artist = data._embedded.attractions[0];
+        if (artist) {
+            displayArtistInfo(artist);
+        } else {
+            alert('Artista não encontrado.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao buscar artista:', error);
+        alert('Erro ao buscar artista. Por favor, tente novamente mais tarde.');
+    });
+}
 
-    if (artistName !== '') {
-        const xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
+function displayArtistInfo(artist) {
+    const artistNameDisplay = document.getElementById('artistNameDisplay');
+    const artistGenre = document.getElementById('artistGenre');
+    const artistImage = document.getElementById('artistImage');
+    const artistInfo = document.getElementById('artistInfo');
 
-        xhr.addEventListener('readystatechange', function () {
-            if (this.readyState === this.DONE) {
-                const data = JSON.parse(this.responseText);
-                if (data.length > 0) {
-                    const artist = data[0]; // Assuming the first result is the most relevant
-                    renderArtistInfo(artist);
-                } else {
-                    artistInfoDiv.innerHTML = '<p>Nenhum artista encontrado com esse nome.</p>';
-                }
-            }
-        });
+    artistNameDisplay.textContent = artist.name;
+    artistGenre.textContent = `Gênero: ${artist.classifications[0].genre.name}`;
+    artistImage.src = artist.images[0].url;
 
-        xhr.open('GET', `https://concerts-artists-events-tracker.p.rapidapi.com/artist?name=${artistName}&page=1`);
-        xhr.setRequestHeader('X-RapidAPI-Key', 'ebe6f92aa8msh057782af95aa5b1p1188afjsn0ad6eb97d521'); // Substitua 'SUA-CHAVE-AQUI' pela sua chave real
-        xhr.setRequestHeader('X-RapidAPI-Host', 'concerts-artists-events-tracker.p.rapidapi.com');
-
-        xhr.send();
-    } else {
-        artistInfoDiv.innerHTML = '<p>Por favor, insira o nome do artista.</p>';
-    }
-});
-
-function renderArtistInfo(artist) {
-    const artistInfoHTML = `
-        <h2>${artist.name}</h2>
-        <p>Gênero: ${artist.genre}</p>
-        <p>Popularidade: ${artist.popularity}</p>
-        <img src="${artist.image}" alt="${artist.name}">
-    `;
-    artistInfoDiv.innerHTML = artistInfoHTML;
+    artistInfo.style.display = 'block';
 }
