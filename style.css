@@ -41,7 +41,8 @@ body {
 }
 
 .navbar {
-  background-color:rgb(47, 47, 47); 
+  background-image: linear-gradient(rgba(143, 143, 143, 0.3), rgba(255, 255, 255, 0.6)), url('https://wallpapercave.com/wp/wp8930936.jpg');
+  background-size: 1725px;
   padding: 15px 0;
 }
 
@@ -82,7 +83,7 @@ body {
 .navbar-brand {
   font-size: 20px;
   line-height: 1.2rem;
-  vertical-align: top;
+  vertical-align: top;  
   font-weight: bold;
   color: #fff;
   text-transform: uppercase;
@@ -259,7 +260,14 @@ body {
   margin-right: 20px;
 
 }
-
+.u-branco {
+  background: linear-gradient(to right, #ff7eb3, #bf45d7); 
+  color: white;
+}
+.apis-desc {
+  color: white;
+  font-size: 20px;
+}
 
 @media (max-width: 767px) {
   .navbar-nav {
