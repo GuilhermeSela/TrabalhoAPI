@@ -9,6 +9,7 @@ function searchArtist() {
         const artist = data._embedded.attractions[0];
         if (artist) {
             displayArtistInfo(artist);
+            fetchSpotifyData(artist.name);
         } else {
             alert('Artista não encontrado.');
         }
@@ -30,4 +31,38 @@ function displayArtistInfo(artist) {
     artistImage.src = artist.images[0].url;
 
     artistInfo.style.display = 'block';
+}
+
+function fetchSpotifyData(artistName) {
+    const spotifyApiKey = 'd4b1806bf06540b89ac38b95faccaa26';
+    const spotifyUrl = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`;
+
+    fetch(spotifyUrl, {
+        headers: {
+            'Authorization': 'Bearer ' + spotifyApiKey
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const artist = data.artists.items[0];
+        if (artist) {
+            displayTopTrack(artist);
+        } else {
+            console.error('Artista não encontrado no Spotify.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao buscar dados do Spotify:', error);
+    });
+}
+
+function displayTopTrack(artist) {
+    const topTrack = artist.top_track;
+    const topTrackDisplay = document.getElementById('topTrack');
+
+    if (topTrack) {
+        topTrackDisplay.textContent = `Música mais famosa: ${topTrack.name}`;
+    } else {
+        console.error('Música mais famosa não encontrada.');
+    }
 }
