@@ -41,9 +41,26 @@ body {
 }
 
 .navbar {
-  background-image: linear-gradient(rgba(143, 143, 143, 0.3), rgba(255, 255, 255, 0.6)), url('https://wallpapercave.com/wp/wp8930936.jpg');
-  background-size: 1725px;
+  position: relative;
   padding: 15px 0;
+  overflow: hidden; /* Ensure content stays within the navbar */
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://wallpapercave.com/wp/wp8930936.jpg') no-repeat center center/cover;
+  filter: blur(10px);
+  z-index: -1; /* Place it behind the navbar content */
+}
+
+.navbar-content {
+  position: relative;
+  z-index: 1; /* Ensure navbar content is above the background */
 }
 
 .container {
@@ -98,6 +115,7 @@ body {
   top: 20px;
   color: transparent; 
   background: linear-gradient(to right, #ff7eb3, #bf45d7);
+  font-family: 'Pacifico', cursive;
   -webkit-background-clip: text; 
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -143,33 +161,67 @@ body {
   font-size: 24px;
   margin-right: 10px; 
 }
-
+/* Estilo para a seção de destaques */
 .highlight {
-  background: linear-gradient(to right, #3a1f62, #d992e8);
+  background-color: #1E1E1E;
   padding: 50px 0;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
-.highlight-thumb{
-  text-align: center;
+/* Estilo para o título */
+.highlight h1 {
+  color: #fff;
+  font-size: 2.5rem;
   margin-bottom: 30px;
 }
 
-.highlight-image{
-  width: 300px;
-  height: auto;
+/* Estilo para a linha sob o título */
+.highlight h1 .u-branco {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
 }
 
-.highlight-image:hover {
-  transform: scale(1.1);
-}
-
-.highlight .container {
+/* Estilo para a área dos destaques */
+.container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 20px; /* Adicionando padding para manter a largura */
+}
+
+/* Estilo para cada destaque */
+.highlight-thumb {
+  text-align: center;
+  max-width: 300px;
+  background-color: #333;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.highlight-thumb:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilo para a imagem de destaque */
+.highlight-thumb img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.highlight-thumb img:hover {
+  transform: scale(1.05);
+}
+
+/* Estilo para a descrição do destaque */
+.apis-desc {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #fff;
 }
 
 .hero {
@@ -268,6 +320,7 @@ body {
   color: white;
   font-size: 20px;
 }
+
 
 @media (max-width: 767px) {
   .navbar-nav {

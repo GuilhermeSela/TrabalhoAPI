@@ -78,11 +78,12 @@ function recognizeMusic() {
 		appleMusicLinkElement.target = '_blank';
 		resultDiv.appendChild(appleMusicLinkElement);
 	  }
+  
 	} else {
 	  resultDiv.textContent = 'Não foi possível reconhecer a música.';
 	}
   }
-
+  
 
 function formatDuration(durationInMillis) {
   var seconds = Math.floor(durationInMillis / 1000);
