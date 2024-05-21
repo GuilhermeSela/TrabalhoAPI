@@ -170,7 +170,7 @@ body {
 /* Estilo para o título */
 .highlight h1 {
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   margin-bottom: 30px;
 }
 
@@ -197,7 +197,7 @@ body {
   max-width: 300px;
   background-color: #333;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -234,23 +234,99 @@ body {
   color: #fff;
 
 }
+
+.text-music {
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+}
+/* Container and Row Styling */
 .about {
-  padding: 50px 0;
-  background: gray;
+  background-color: #333;
+  padding: 60px 0;
+  font-family: 'Jost', sans-serif;
+  color: #f5f5f5; /* Set the default text color to light */
 }
 
+.about .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.about .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Headings Styling */
 .about h2 {
-  font-size: 36px;
+  font-family: 'Jost', sans-serif;
+  font-size: 48px;
+  color: #ff7eb3; /* Light pink color for the main heading */
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+  line-height: 1.2;
+}
+
+.about h2 u {
+  background: linear-gradient(to right, #ff7eb3, #bf45d7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.about h3 {
+  font-family: 'Jost', sans-serif;
+  font-size: 32px;
+  color: #bf45d7; /* Purple color for subheadings */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff7eb3; /* Light pink underline */
+  padding-bottom: 10px;
+}
+
+/* Paragraphs Styling */
+.about p {
+  font-family: 'Jost', sans-serif;
+  font-size: 18px;
+  color: #ddd; /* Light grey for paragraph text */
+  line-height: 1.8;
   margin-bottom: 20px;
 }
 
-.about p {
-  font-size: 18px;
-  line-height: 1.6;
+/* Column Styling */
+.about .col-lg-6 {
+  flex: 0 0 48%;
+  max-width: 48%;
+  margin-bottom: 30px;
+  padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+  .about .col-lg-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+}
+
+.about h3, .about p {
+  transition: all 0.3s ease-in-out;
+}
+
+.about h3:hover {
+  color: #ff7eb3; /* Change to light pink on hover */
+  border-color: #bf45d7; /* Purple underline on hover */
+}
+
+.about p:hover {
+  color: #fff; /* Change paragraph text to white on hover */
 }
 
 .speakers {
-  background-color: #f9f9f9;
+  background-image: url('https://wallpapercave.com/wp/wp8930936.jpg');
+  background-size: 100%;  
   padding: 50px 0;
 }
 
@@ -259,8 +335,9 @@ body {
 }
 
 .speakers-text-info h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 56px;
+  margin-top: 80px;
+  color: white;
 }
 
 .speakers-thumb {
@@ -296,29 +373,70 @@ body {
   margin-bottom: 10px;
 }
 
-
 .site-footer {
-  background-color: #273053;
-  padding: 50px 0;
-  text-align: center;
-}
-
-.footer-menu {
-  margin-bottom: 20px;
+  background-color: #7e7e7e;
   color: #fff;
-  font-size: 18px;
-  text-decoration: none;
-  display: inline-block;
-  margin-right: 20px;
-
+  padding: 50px 0;
 }
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-info {
+  max-width: 300px;
+}
+
+.footer-info h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-info p {
+  margin-bottom: 10px;
+}
+
+.footer-social h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons li:last-child {
+  margin-right: 0;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 20px;
+}
+
+.social-icons a:hover {
+  color: #ff69b4;
+}
+
 .u-branco {
   background: linear-gradient(to right, #ff7eb3, #bf45d7); 
   color: white;
 }
 .apis-desc {
-  color: white;
+  background: radial-gradient(circle, #ff69b4, #800080);
+  border-radius: 80%; /* Isso tornará o elemento redondo */
   font-size: 20px;
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
 }
 
 

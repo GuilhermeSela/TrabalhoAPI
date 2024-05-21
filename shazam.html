@@ -7,9 +7,10 @@
 <link rel="stylesheet" href="shazam.css">
 </head>
 <body>
-  <input type="file" id="audioFile" accept=".mp3">
-  <button onclick="recognizeMusic()">Reconhecer Música</button>
+  <input type="file" id="audioFile" class="custom-file-input" accept=".mp3">
+  <button class="back-button" onclick="recognizeMusic()">Reconhecer Música</button>
   <div id="result"></div>
+  <button onclick="window.location.href = 'index.html';">Voltar para a página inicial</button>
 
   <script src="shazam.js"></script>
 </body>

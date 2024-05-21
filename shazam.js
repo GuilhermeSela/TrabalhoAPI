@@ -34,15 +34,21 @@ function recognizeMusic() {
     
     if (response.status === 'success') {
         var song = response.result;
+
         var artist = song.artist;
         var title = song.title;
-        var spotifyLink = song.spotify.external_urls.spotify;
-        var appleMusicLink = song.apple_music.url;
+        var spotifyLink = song.spotify && song.spotify.external_urls && song.spotify.external_urls.spotify;
+        var appleMusicLink = song.apple_music && song.apple_music.url;
         var releaseDate = song.release_date;
         var album = song.album;
-        var duration = formatDuration(song.apple_music.durationInMillis);
-        var albumArtwork = song.apple_music.artwork.url;
-        
+        var duration = formatDuration(song.apple_music && song.apple_music.durationInMillis);
+        var albumArtwork = song.apple_music && song.apple_music.artwork && song.apple_music.artwork.url;
+
+        // Substituindo {w} e {h} na URL da imagem
+        if (albumArtwork) {
+            albumArtwork = albumArtwork.replace('{w}', '500').replace('{h}', '260');
+        }
+
         var artistElement = document.createElement('p');
         artistElement.textContent = 'Artista: ' + artist;
         resultDiv.appendChild(artistElement);
@@ -68,6 +74,8 @@ function recognizeMusic() {
             spotifyLinkElement.textContent = 'Link do Spotify';
             spotifyLinkElement.href = spotifyLink;
             spotifyLinkElement.target = '_blank';
+            spotifyLinkElement.style.display = 'block';
+            spotifyLinkElement.style.textAlign = 'center';
             resultDiv.appendChild(spotifyLinkElement);
         }
         
@@ -76,12 +84,18 @@ function recognizeMusic() {
             appleMusicLinkElement.textContent = 'Link do Apple Music';
             appleMusicLinkElement.href = appleMusicLink;
             appleMusicLinkElement.target = '_blank';
+            appleMusicLinkElement.style.display = 'block';
+            appleMusicLinkElement.style.textAlign = 'center';
             resultDiv.appendChild(appleMusicLinkElement);
         }
-		if (albumArtwork) {
+
+        // Adicionando a imagem do álbum abaixo dos links
+        if (albumArtwork) {
             var albumArtworkElement = document.createElement('img');
             albumArtworkElement.src = albumArtwork;
             albumArtworkElement.alt = 'Capa do Álbum';
+            albumArtworkElement.style.display = 'block';
+            albumArtworkElement.style.margin = '10px auto'; // Centralizar a imagem
             resultDiv.appendChild(albumArtworkElement);
         }
         
@@ -96,4 +110,3 @@ function formatDuration(durationInMillis) {
     seconds = seconds % 60;
     return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 }
-
