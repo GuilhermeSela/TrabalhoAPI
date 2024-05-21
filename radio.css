@@ -1,83 +1,104 @@
-:root {
-    --white-color:                  #ffffff;
-    --primary-color:                #0dcaf0;
-    --secondary-color:              #0d6efd;
-    --section-bg-color:             #f0f8ff;
-    --dark-color:                   #000000;
-    --navbar-bg-color:              #273053;
-    --p-color:                      #717275;
-    --highlight-icon-color:         #ff0100;
-  
-    --body-font-family:             'DM Sans', sans-serif;
-  
-    --h1-font-size:                 62px;
-    --h2-font-size:                 48px;
-    --h3-font-size:                 36px;
-    --h4-font-size:                 32px;
-    --h5-font-size:                 24px;
-    --h6-font-size:                 22px;
-    --p-font-size:                  18px;
-  
-    --font-weight-normal:           400;
-    --font-weight-medium:           500;
-    --font-weight-bold:             700;
-  }
-
 body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #ff7eb3, #bf45d7);
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ff7eb3, #bf45d7);
+  margin: 0;
+  padding: 0;
 }
 
-.primeiroDiv {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(to right, #ff7eb3, #bf45d7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
-    text-align: center;
-    color: #333;
+h1 {
+  text-align: center;
 }
 
-#SelecionarRadio {
-    margin: 20px auto;
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.radio-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
 }
 
-#radioInfo {
-    margin-top: 30px;
+.radio-item {
+  flex: 1 1 calc(33.333% - 10px); /* 3 items per row */
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
 }
 
-#radioInfo h2 {
-    margin-bottom: 10px;
+.radio-item:hover {
+  background-color: #f0f0f0;
 }
 
-#radioInfo p {
-    margin-bottom: 5px;
-    color: #555;
+#player {
+  margin-top: 20px;
 }
 
-.btn-voltar {
+#radio-frame {
+  width: 100%;
+  height: 80px;
+}
+
+.hidden {
+  display: none;
+}
+
+#change-page-button {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
-  background-color: var(--primary-color);
-  color: var(--white-color);
+  font-size: 16px;
+  color: #fff;
+  background-color: #bf45d7;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
-.btn-voltar:hover {
-  background-color: var(--secondary-color);
+#change-page-button:hover {
+  background-color: #9d36b2;
+}
+
+#change-page-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #bf45d7;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#change-page-button:hover {
+  background-color: #9d36b2;
+}
+
+#radio-link-container {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#radio-link {
+  color: #bf45d7;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#radio-link:hover {
+  text-decoration: underline;
 }

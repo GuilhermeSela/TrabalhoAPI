@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selecionar Estação de Rádio</title>
+    <title>Rádios</title>
     <link rel="stylesheet" href="radio.css">
 </head>
 <body>
-    <main>
-    <div class="primeiroDiv">
-        <h1>Selecionar Estação de Rádio</h1>
-        <select id="SelecionarRadio">
-            <option value="">Selecione uma estação de rádio</option>
-            
-        </select>
-        <div id="radioInfo">
-            <h2>Informações da Rádio Selecionada</h2>
-            <p id="radioNome">Nome da Rádio:</p>
-            <p id="musicaAtual">Música Atual:</p>
+    <div class="container">
+        <h1>Rádios</h1>
+        <div id="radio-list" class="radio-list"></div>
+        <div id="player" class="hidden">
+            <h2 id="radio-title"></h2>
+            <iframe id="radio-frame" src="" frameborder="0" allow="autoplay"></iframe>
+            <div id="radio-link-container" class="hidden">
+                <a id="radio-link" href="#" target="_blank">Abrir no Garden</a>
+            </div>
         </div>
+        <button id="change-page-button" onclick="voltarParaPaginaInicial()">Voltar para Página Inicial</button>
     </div>
-    <button id="btnVoltar" onclick="voltarParaPaginaInicial()" class="btn-voltar">Voltar</button>
-</main>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="radio.js"></script> 
+    <script src="radio.js"></script>
 </body>
 </html>
