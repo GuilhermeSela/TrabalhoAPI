@@ -1,3 +1,4 @@
+// Função para buscar informações do artista na Ticketmaster
 function searchArtist() {
     const artistName = document.getElementById('artistName').value;
     const apiKey = 'V7RMLICYZxiGuLz2w2HRi8aKwG2tCgjP';
@@ -6,10 +7,13 @@ function searchArtist() {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        const artist = data._embedded.attractions[0];
+        const artist = data._embedded && data._embedded.attractions ? data._embedded.attractions[0] : null;
         if (artist) {
             displayArtistInfo(artist);
-            fetchSpotifyData(artist.name);
+            fetchEventDetails(artist.id); // Buscar detalhes dos eventos
+            fetchGenreDetails(artist.classifications[0].genre.id); // Buscar detalhes do gênero
+            fetchArtistSingles(); // Buscar singles do artista
+            fetchPlaylistTracks(); // Buscar faixas da playlist
         } else {
             alert('Artista não encontrado.');
         }
@@ -20,6 +24,7 @@ function searchArtist() {
     });
 }
 
+// Função para exibir informações do artista
 function displayArtistInfo(artist) {
     const artistNameDisplay = document.getElementById('artistNameDisplay');
     const artistGenre = document.getElementById('artistGenre');
@@ -33,36 +38,101 @@ function displayArtistInfo(artist) {
     artistInfo.style.display = 'block';
 }
 
-function fetchSpotifyData(artistName) {
-    const spotifyApiKey = 'd4b1806bf06540b89ac38b95faccaa26';
-    const spotifyUrl = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`;
+// Função para buscar detalhes dos eventos do artista
+function fetchEventDetails(artistId) {
+    const apiKey = 'V7RMLICYZxiGuLz2w2HRi8aKwG2tCgjP';
+    const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&attractionId=${artistId}`;
 
-    fetch(spotifyUrl, {
-        headers: {
-            'Authorization': 'Bearer ' + spotifyApiKey
-        }
-    })
+    fetch(url)
     .then(response => response.json())
     .then(data => {
-        const artist = data.artists.items[0];
-        if (artist) {
-            displayTopTrack(artist);
-        } else {
-            console.error('Artista não encontrado no Spotify.');
+        if (data._embedded && data._embedded.events) {
+            displayEventDetails(data._embedded.events);
+            const eventId = data._embedded.events[0].id; // Pegando o ID do primeiro evento para buscar imagens
+            fetchEventImages(eventId); // Buscar imagens do evento
         }
     })
     .catch(error => {
-        console.error('Erro ao buscar dados do Spotify:', error);
+        console.error('Erro ao buscar detalhes dos eventos:', error);
     });
 }
 
-function displayTopTrack(artist) {
-    const topTrack = artist.top_track;
-    const topTrackDisplay = document.getElementById('topTrack');
+// Função para exibir detalhes dos eventos
+function displayEventDetails(events) {
+    const eventList = document.getElementById('eventList');
+    eventList.innerHTML = '';
 
-    if (topTrack) {
-        topTrackDisplay.textContent = `Música mais famosa: ${topTrack.name}`;
-    } else {
-        console.error('Música mais famosa não encontrada.');
-    }
+    events.forEach(event => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${event.name} - ${new Date(event.dates.start.dateTime).toLocaleString()}`;
+        eventList.appendChild(listItem);
+    });
+}
+
+// Função para buscar detalhes de um gênero específico
+function fetchGenreDetails(genreId) {
+    const apiKey = 'V7RMLICYZxiGuLz2w2HRi8aKwG2tCgjP';
+    const url = `https://app.ticketmaster.com/discovery/v2/classifications/genres/${genreId}.json?apikey=${apiKey}`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log('Detalhes do gênero:', data);
+        // Você pode adicionar mais lógica aqui para exibir detalhes do gênero, se necessário
+    })
+    .catch(error => {
+        console.error('Erro ao buscar detalhes do gênero:', error);
+    });
+}
+
+function fetchEventImages(eventId) {
+    const apiKey = 'V7RMLICYZxiGuLz2w2HRi8aKwG2tCgjP';
+    const url = `https://app.ticketmaster.com/discovery/v2/events/${eventId}/images.json?apikey=${apiKey}`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log('Imagens do evento:', data); // Verifica a resposta da API
+        // Adicione código para manipular as imagens aqui
+    })
+    .catch(error => {
+        console.error('Erro ao buscar imagens do evento:', error);
+    });
+}
+
+// Função para buscar singles do artista específico
+function fetchArtistSingles() {
+    const options = {
+        method: 'GET',
+        url: 'https://spotify-web2.p.rapidapi.com/artist_singles/',
+        params: {
+            id: '2w9zwq3AktTeYYMuhMjju8',
+            offset: '0',
+            limit: '20'
+        },
+        headers: {
+            'X-RapidAPI-Key': 'ebe6f92aa8msh057782af95aa5b1p1188afjsn0ad6eb97d521',
+            'X-RapidAPI-Host': 'spotify-web2.p.rapidapi.com'
+        }
+    };
+
+    axios.request(options)
+    .then(response => {
+        displayArtistSingles(response.data);
+    })
+    .catch(error => {
+        console.error('Erro ao buscar singles do artista:', error);
+    });
+}
+
+// Função para exibir singles do artista
+function displayArtistSingles(data) {
+    const trackList = document.getElementById('trackList');
+    trackList.innerHTML = '';
+
+    data.tracks.slice(0, 5).forEach(track => { // Exibindo apenas os primeiros 5 singles
+        const listItem = document.createElement('li');
+        listItem.textContent = `${track.name}`;
+        trackList.appendChild(listItem);
+    });
 }

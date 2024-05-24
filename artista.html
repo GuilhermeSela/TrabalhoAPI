@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca de Artista</title>
     <link rel="stylesheet" href="artista.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,8 +15,11 @@
         <div id="artistInfo" class="artist-info" style="display: none;">
             <h2 id="artistNameDisplay"></h2>
             <p id="artistGenre"></p>
-            <p id="topTrack"></p>
             <img id="artistImage" src="" alt="Imagem do Artista">
+            <div id="events">
+                <h3>Próximos Eventos</h3>
+                <ul id="eventList"></ul>
+            </div>
         </div>
     </div>
     <script src="artista.js"></script>
