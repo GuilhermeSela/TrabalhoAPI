@@ -1,27 +1,5 @@
 const radios = [
     {
-        "_id": "3006059",
-        "_score": 343.16785,
-        "_source": {
-            "code": "PT",
-            "type": "country",
-            "title": "Portugal",
-            "url": "https://radio.garden/visit/portugal/lVedGqUL"
-        }
-    },
-    {
-        "_id": "3001673",
-        "_score": 119.35275,
-        "_source": {
-            "code": "PT",
-            "subtitle": "Lisbon, Portugal",
-            "type": "channel",
-            "title": "Portugal Star",
-            "secure": false,
-            "url": "https://radio.garden/listen/portugal-star/nrigdCOx"
-        }
-    },
-    {
         "_id": "3005921",
         "_score": 101.5753,
         "_source": {
@@ -31,7 +9,7 @@ const radios = [
             "type": "channel",
             "title": "RFM",
             "secure": true,
-            "url": "https://radio.garden/listen/rfm/Ejy5Gaa6"
+            "url": "https://23613.live.streamtheworld.com/RFMAAC.aac"
         }
     },
     {
@@ -40,11 +18,11 @@ const radios = [
         "_source": {
             "code": "PT",
             "stream": "esradio.pt",
-            "subtitle": "Porto, Portugal",
+            "subtitle": "Lisboa, Portugal",
             "type": "channel",
-            "title": "ESRadioPT",
+            "title": "Cidade FM",
             "secure": false,
-            "url": "https://radio.garden/listen/es-radio-pt/gDrTTOhl"
+            "url": "https://stream-icy.bauermedia.pt/cidade.mp3"
         }
     },
     {
@@ -55,9 +33,9 @@ const radios = [
             "stream": "shoutca.st",
             "subtitle": "Lisbon, Portugal",
             "type": "channel",
-            "title": "SFTD",
+            "title": "Mega Hits",
             "secure": false,
-            "url": "https://radio.garden/listen/sftd/O5BjlkNU"
+            "url": "https://27793.live.streamtheworld.com/MEGA_HITSAAC.aac"
         }
     },
     {
@@ -70,7 +48,7 @@ const radios = [
             "type": "channel",
             "title": "Futura",
             "secure": true,
-            "url": "https://radio.garden/listen/futura/qiExnFLt"
+            "url": "https://s4.radio.co/s7e7b6c165/listen"
         }
     },
     {
@@ -83,7 +61,7 @@ const radios = [
             "type": "channel",
             "title": "Radio Promove Portugal",
             "secure": true,
-            "url": "https://radio.garden/listen/radio-promove-portugal/6BWED82w"
+            "url": "https://stream1.svrdedicado.org/8410/stream"
         }
     },
     {
@@ -96,7 +74,7 @@ const radios = [
             "type": "channel",
             "title": "Veepradio.com",
             "secure": true,
-            "url": "https://radio.garden/listen/veepradio-com/DsXbd0bq"
+            "url": "https://listen.radioking.com/radio/42445/stream/79033"
         }
     },
     {
@@ -105,11 +83,11 @@ const radios = [
         "_source": {
             "code": "PT",
             "stream": "justweb.pt",
-            "subtitle": "Porto, Portugal",
+            "subtitle": "Lisboa, Portugal",
             "type": "channel",
-            "title": "XL Radio",
+            "title": "M80",
             "secure": true,
-            "url": "https://radio.garden/listen/radio-xl-fm-boa-musica/BtlHpHSi"
+            "url": "https://stream-icy.bauermedia.pt/m80.mp3"
         }
     },
     {
@@ -120,9 +98,9 @@ const radios = [
             "stream": "yesstreaming.net",
             "subtitle": "Lisbon, Portugal",
             "type": "channel",
-            "title": "Rádio Salesiana",
+            "title": "Oxigénio FM",
             "secure": true,
-            "url": "https://radio.garden/listen/radio-salesiana/T9RxGYFT"
+            "url": "https://proic1.evspt.com/oxigenio_aac"
         }
     },
     {
@@ -135,7 +113,7 @@ const radios = [
             "type": "channel",
             "title": "Antena 2",
             "secure": true,
-            "url": "https://radio.garden/listen/antena-2/yChWrVUH"
+            "url": "https://radiocast.rtp.pt/antena280a.mp3"
         }
     },
     {
@@ -148,7 +126,7 @@ const radios = [
             "type": "channel",
             "title": "Antena 1",
             "secure": true,
-            "url": "https://radio.garden/listen/antena-1/kJZ26vKM"
+            "url": "https://radiocast.rtp.pt/antena180a.mp3"
         }
     },
     {
@@ -161,7 +139,7 @@ const radios = [
             "type": "channel",
             "title": "Rádio Paranóia",
             "secure": true,
-            "url": "https://radio.garden/listen/radio-paranoia/TiIYPKTD"
+            "url": "https://azuracast.radioparanoia1000.com/listen/rp1/radio.mp3"
         }
     },
     {
@@ -174,7 +152,7 @@ const radios = [
             "type": "channel",
             "title": "Rádio Comercial",
             "secure": true,
-            "url": "https://radio.garden/listen/radio-comercial/Fb7oz4pZ"
+            "url": "https://stream-icy.bauermedia.pt/comercial.mp3"
         }
     },
     {
@@ -187,7 +165,7 @@ const radios = [
             "type": "channel",
             "title": "Rádio ZigZag",
             "secure": true,
-            "url": "https://radio.garden/listen/radio-zigzag/lHdGrh31"
+            "url": "https://radiocast.rtp.pt/zigzag80a.mp3"
         }
     },
     {
@@ -200,20 +178,7 @@ const radios = [
             "type": "channel",
             "title": "Rádio Lusitânia",
             "secure": true,
-            "url": "https://radio.garden/listen/radio-lusitania/GVPMemP4"
-        }
-    },
-    {
-        "_id": "3015240",
-        "_score": 95.78352,
-        "_source": {
-            "code": "PT",
-            "stream": "radios.pt",
-            "subtitle": "Lisbon, Portugal",
-            "type": "channel",
-            "title": "Radio Valdevez",
-            "secure": false,
-            "url": "https://radio.garden/listen/radiovaldevez/eas75MJd"
+            "url": "https://radiocast.rtp.pt/lusitania80a.mp3"
         }
     },
     {
@@ -226,7 +191,7 @@ const radios = [
             "type": "channel",
             "title": "RDP África",
             "secure": true,
-            "url": "https://radio.garden/listen/rdp-africa/N2AzWRX9"
+            "url": "https://radiocast.rtp.pt/rdpafrica80a.mp3"
         }
     },
     {
@@ -239,7 +204,7 @@ const radios = [
             "type": "channel",
             "title": "Antena 3",
             "secure": true,
-            "url": "https://radio.garden/listen/antena-3/6lS0ncP9"
+            "url": "https://radiocast.rtp.pt/antena380a.mp3"
         }
     },
     {
@@ -252,29 +217,27 @@ const radios = [
             "type": "channel",
             "title": "Rádio AMália",
             "secure": true,
-            "url": "https://radio.garden/listen/radio-amalia/hlESAi9x"
+            "url": "https://centova.radios.pt/proxy/496?mp=/stream"
         }
     }
+
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
     const radioList = document.getElementById("radio-list");
     const player = document.getElementById("player");
     const radioTitle = document.getElementById("radio-title");
-    const radioFrame = document.getElementById("radio-frame");
-    const radioLinkContainer = document.getElementById("radio-link-container");
-    const radioLink = document.getElementById("radio-link");
- 
+    const radioAudio = document.getElementById("radio-audio");
+
     radios.forEach(radio => {
         const listItem = document.createElement("div");
         listItem.className = "radio-item";
         listItem.textContent = radio._source.title;
         listItem.addEventListener("click", () => {
             radioTitle.textContent = radio._source.title;
-            radioFrame.src = radio._source.url;
-            radioLink.href = radio._source.url;
-            radioLinkContainer.classList.remove("hidden");
+            radioAudio.src = radio._source.url;
             player.classList.remove("hidden");
+            radioAudio.play();
         });
         radioList.appendChild(listItem);
     });
