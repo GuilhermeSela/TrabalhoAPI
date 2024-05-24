@@ -11,9 +11,6 @@ function searchArtist() {
         if (artist) {
             displayArtistInfo(artist);
             fetchEventDetails(artist.id); // Buscar detalhes dos eventos
-            fetchGenreDetails(artist.classifications[0].genre.id); // Buscar detalhes do gênero
-            fetchArtistSingles(); // Buscar singles do artista
-            fetchPlaylistTracks(); // Buscar faixas da playlist
         } else {
             alert('Artista não encontrado.');
         }
@@ -49,7 +46,6 @@ function fetchEventDetails(artistId) {
         if (data._embedded && data._embedded.events) {
             displayEventDetails(data._embedded.events);
             const eventId = data._embedded.events[0].id; // Pegando o ID do primeiro evento para buscar imagens
-            fetchEventImages(eventId); // Buscar imagens do evento
         }
     })
     .catch(error => {
@@ -69,70 +65,3 @@ function displayEventDetails(events) {
     });
 }
 
-// Função para buscar detalhes de um gênero específico
-function fetchGenreDetails(genreId) {
-    const apiKey = 'V7RMLICYZxiGuLz2w2HRi8aKwG2tCgjP';
-    const url = `https://app.ticketmaster.com/discovery/v2/classifications/genres/${genreId}.json?apikey=${apiKey}`;
-
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        console.log('Detalhes do gênero:', data);
-        // Você pode adicionar mais lógica aqui para exibir detalhes do gênero, se necessário
-    })
-    .catch(error => {
-        console.error('Erro ao buscar detalhes do gênero:', error);
-    });
-}
-
-function fetchEventImages(eventId) {
-    const apiKey = 'V7RMLICYZxiGuLz2w2HRi8aKwG2tCgjP';
-    const url = `https://app.ticketmaster.com/discovery/v2/events/${eventId}/images.json?apikey=${apiKey}`;
-
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        console.log('Imagens do evento:', data); // Verifica a resposta da API
-        // Adicione código para manipular as imagens aqui
-    })
-    .catch(error => {
-        console.error('Erro ao buscar imagens do evento:', error);
-    });
-}
-
-// Função para buscar singles do artista específico
-function fetchArtistSingles() {
-    const options = {
-        method: 'GET',
-        url: 'https://spotify-web2.p.rapidapi.com/artist_singles/',
-        params: {
-            id: '2w9zwq3AktTeYYMuhMjju8',
-            offset: '0',
-            limit: '20'
-        },
-        headers: {
-            'X-RapidAPI-Key': 'ebe6f92aa8msh057782af95aa5b1p1188afjsn0ad6eb97d521',
-            'X-RapidAPI-Host': 'spotify-web2.p.rapidapi.com'
-        }
-    };
-
-    axios.request(options)
-    .then(response => {
-        displayArtistSingles(response.data);
-    })
-    .catch(error => {
-        console.error('Erro ao buscar singles do artista:', error);
-    });
-}
-
-// Função para exibir singles do artista
-function displayArtistSingles(data) {
-    const trackList = document.getElementById('trackList');
-    trackList.innerHTML = '';
-
-    data.tracks.slice(0, 5).forEach(track => { // Exibindo apenas os primeiros 5 singles
-        const listItem = document.createElement('li');
-        listItem.textContent = `${track.name}`;
-        trackList.appendChild(listItem);
-    });
-}
