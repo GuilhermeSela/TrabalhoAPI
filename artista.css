@@ -51,7 +51,10 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-
+#artistImage {
+    width: 640px;
+    height: 427px;
+}
 .artist-info {
     margin-top: 20px;
     padding: 20px;
