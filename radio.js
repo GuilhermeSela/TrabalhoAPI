@@ -72,7 +72,7 @@ const radios = [
             "stream": "radioking.com",
             "subtitle": "Porto, Portugal",
             "type": "channel",
-            "title": "Veepradio.com",
+            "title": "Veepradio",
             "secure": true,
             "url": "https://listen.radioking.com/radio/42445/stream/79033"
         }
