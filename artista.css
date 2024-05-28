@@ -15,17 +15,23 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
+
 .botao-voltar {
     background-color: #ff69b4;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      margin-top: 50px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  }
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-voltar:hover {
+    background-color: #ff1493; 
+}
+
 h1 {
     margin-bottom: 20px;
     color: #bf45d7;
@@ -51,10 +57,14 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
 #artistImage {
-    width: 640px;
-    height: 427px;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    border-radius: 5px;
 }
+
 .artist-info {
     margin-top: 20px;
     padding: 20px;
@@ -88,4 +98,27 @@ button:hover {
 
 .artist-info ol, .artist-info ul {
     padding-left: 20px;
+}
+
+.ticket-button {
+    background-color: #28a745; 
+    color: #fff; 
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 20px; 
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.ticket-button:hover {
+    background-color: #218838; 
+    transform: scale(1.05); 
+}
+
+.ticket-button:active {
+    background-color: #1e7e34; 
+    transform: scale(1); 
 }
