@@ -432,8 +432,6 @@ body {
   color: white;
 }
 .apis-desc {
-  background: radial-gradient(circle, #ff69b4, #800080);
-  border-radius: 80%; /* Isso tornará o elemento redondo */
   font-size: 20px;
   font-family: 'Pacifico', cursive;
   font-size: 40px;

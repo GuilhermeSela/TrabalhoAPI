@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(to right, #ff7eb3, #bf45d7);
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,20 +10,33 @@ body {
   flex-direction: column;
 }
 
-#audioFile {
-  margin-bottom: 10px;
+h2 {
+  text-align: center;
+  color: floralwhite;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaçamento entre os botões */
+  margin-bottom: 20px;
 }
 
 button {
   background-color: #ff69b4;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 50px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ff85c1;
 }
 
 #result {
@@ -35,7 +48,7 @@ button {
   text-align: left;
   border-radius: 5px solid; 
   border: 5px solid;
-  border-image: linear-gradient(to right, #ff7eb3, #bf45d7) 1;
+  border-image: linear-gradient(to right, #4d4d4d, #676767) 1;
 }
 
 #result p {
@@ -55,21 +68,24 @@ button {
   text-decoration: underline;
 }
 
-
-#result a:hover {
-  text-decoration: underline;
-}
 #audioFile {
-  padding: 10px;
-  border: none; /* Removendo a borda para permitir a visualização da borda degradê */
-  border-radius: 25px; /* Definindo o border-radius para a metade da altura do botão */
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
   font-size: 16px;
-  width: 400px;
-  background-color: #6c6c6c;
-  margin-bottom: 10px;
-  color: rgb(240, 239, 239); /* Definindo a cor do texto */
-  cursor: pointer; /* Mudando o cursor para indicar que é clicável */
-  box-shadow: 0 0 0 2px #ff7eb3, 0 0 0 2px #bf45d7; /* Criando uma borda usando box-shadow */
+  width: 300px;
+  background: linear-gradient(145deg, #6c6c6c, #4b4b4b);
+  color: #f0efef;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+#audioFile:hover {
+  background: linear-gradient(145deg, #4b4b4b, #6c6c6c);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 #audioFile:focus {
@@ -79,7 +95,7 @@ button {
 #audioFile::file-selector-button {
   color: white;
   border-radius: white 2px;
-  background: linear-gradient(to right, #6c6c6c, #bf45d7); 
+  background: linear-gradient(to right, hsl(258, 80%, 34%), #493d98); 
 }
 
 .custom-file-input {
@@ -97,8 +113,9 @@ button {
   border-color: #4CAF50;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
+
 .back-button {
-  background: linear-gradient(to right, #ff7eb3, #bf45d7);
+  background: linear-gradient(to right, #646fb7, #3015b7);
   color: white;
   border: none;
   padding: 10px 20px;
