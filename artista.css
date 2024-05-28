@@ -3,30 +3,38 @@ body {
     background: linear-gradient(to right, #ff7eb3, #bf45d7);
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
+
 .botao-voltar {
     background-color: #ff69b4;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      margin-top: 50px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  }
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-voltar:hover {
+    background-color: #ff1493; 
+}
+
 h1 {
     margin-bottom: 20px;
+    color: #bf45d7;
 }
 
 input[type="text"] {
@@ -50,6 +58,13 @@ button:hover {
     background-color: #0056b3;
 }
 
+#artistImage {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    border-radius: 5px;
+}
+
 .artist-info {
     margin-top: 20px;
     padding: 20px;
@@ -62,13 +77,48 @@ button:hover {
 
 .artist-info h2 {
     margin-top: 0;
+    color: #007bff;
 }
 
 .artist-info p {
     margin-bottom: 10px;
+    font-size: 1.1em;
 }
 
 .artist-info img {
     max-width: 100%;
     border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.artist-info h3 {
+    margin-top: 20px;
+    color: #007bff;
+}
+
+.artist-info ol, .artist-info ul {
+    padding-left: 20px;
+}
+
+.ticket-button {
+    background-color: #28a745; 
+    color: #fff; 
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 20px; 
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.ticket-button:hover {
+    background-color: #218838; 
+    transform: scale(1.05); 
+}
+
+.ticket-button:active {
+    background-color: #1e7e34; 
+    transform: scale(1); 
 }

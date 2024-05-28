@@ -6,10 +6,10 @@ function searchArtist() {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        const artist = data._embedded.attractions[0];
+        const artist = data._embedded && data._embedded.attractions ? data._embedded.attractions[0] : null;
         if (artist) {
             displayArtistInfo(artist);
-            fetchSpotifyData(artist.name);
+            fetchEventDetails(artist.id);
         } else {
             alert('Artista não encontrado.');
         }
@@ -33,36 +33,56 @@ function displayArtistInfo(artist) {
     artistInfo.style.display = 'block';
 }
 
-function fetchSpotifyData(artistName) {
-    const spotifyApiKey = 'd4b1806bf06540b89ac38b95faccaa26';
-    const spotifyUrl = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`;
+function fetchEventDetails(artistId) {
+    const apiKey = 'V7RMLICYZxiGuLz2w2HRi8aKwG2tCgjP';
+    const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&attractionId=${artistId}`;
 
-    fetch(spotifyUrl, {
-        headers: {
-            'Authorization': 'Bearer ' + spotifyApiKey
-        }
-    })
+    fetch(url)
     .then(response => response.json())
     .then(data => {
-        const artist = data.artists.items[0];
-        if (artist) {
-            displayTopTrack(artist);
-        } else {
-            console.error('Artista não encontrado no Spotify.');
+        if (data._embedded && data._embedded.events) {
+            displayEventDetails(data._embedded.events);
         }
     })
     .catch(error => {
-        console.error('Erro ao buscar dados do Spotify:', error);
+        console.error('Erro ao buscar detalhes dos eventos:', error);
     });
 }
 
-function displayTopTrack(artist) {
-    const topTrack = artist.top_track;
-    const topTrackDisplay = document.getElementById('topTrack');
+function fetchEventImages(eventId, listItem) {
+    const apiKey = 'V7RMLICYZxiGuLz2w2HRi8aKwG2tCgjP';
+    const url = `https://app.ticketmaster.com/discovery/v2/events/${eventId}/images.json?apikey=${apiKey}`;
 
-    if (topTrack) {
-        topTrackDisplay.textContent = `Música mais famosa: ${topTrack.name}`;
-    } else {
-        console.error('Música mais famosa não encontrada.');
-    }
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        if (data._embedded && data._embedded.images) {
+            const eventImage = data._embedded.images[0].url;
+            const eventImageElement = document.createElement('img');
+            eventImageElement.src = eventImage;
+            eventImageElement.style.width = '100%';
+            eventImageElement.style.borderRadius = '5px';
+            listItem.appendChild(eventImageElement);
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao buscar imagens do evento:', error);
+    });
 }
+
+function displayEventDetails(events) {
+    const eventList = document.getElementById('eventList');
+    eventList.innerHTML = '';
+
+    events.forEach(event => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            ${event.name} - ${new Date(event.dates.start.dateTime).toLocaleString()}
+            <br><button class="ticket-button" onclick="window.open('${event.url}', '_blank')">Comprar Ingressos</button>
+        `;
+        eventList.appendChild(listItem);
+
+        fetchEventImages(event.id, listItem); 
+    });
+}
+
